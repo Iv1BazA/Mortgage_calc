@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 class MortgageInfo extends StatefulWidget {
   final String totalCost;
   final String term;
-  final double alreadyPaid;
+  double alreadyPaid;
   final int mortgageIndex;
   final DateTime date;
   final int rate;
@@ -32,21 +32,9 @@ class MortgageInfo extends StatefulWidget {
 }
 
 class _MortgageInfoState extends State<MortgageInfo> {
-  double _alreadyPaid = 0.0;
-  @override
-  void initState() {
-    super.initState();
-    _alreadyPaid = widget.alreadyPaid;
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
-      setState(() {
-        _alreadyPaid = widget.alreadyPaid;
-      });
-    });
-  }
-
   void updateAlreadyPaid(double newAlreadyPaid) {
     setState(() {
-      _alreadyPaid = newAlreadyPaid;
+      widget.alreadyPaid = newAlreadyPaid;
     });
   }
 
